@@ -1,13 +1,39 @@
-body {
+/*CSS reset*/
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+html {
+    font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    font-family: inherit;
+}
+
+/*Variables de colores*/
+:root {
+   /*Definir variables globales*/
+}
+
+.App {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(#fff, #333);
+  background-size: cover;
+ 
+  /*Flex to center items*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 60vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

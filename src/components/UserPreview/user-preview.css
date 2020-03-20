@@ -1,0 +1,10 @@
+.user-preview {
+    height: 100%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(254, 214, 1);
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
