@@ -15,19 +15,43 @@ export default class App extends Component {
   }
 
 onGenderChange = (e) => {
-  console.log(e.target.value)
+  this.setState({
+    gender: e.target.value
+  })
 }
 
 onMembershipChange = (e) => {
-  console.log(e.target.value)
+  this.setState({
+    membership: e.target.value
+  })
+}
+
+onNameChange = (e) => {
+  this.setState({
+    name: e.target.value
+  })
+}
+
+onEmailChange = (e) => {
+  this.setState({
+    email: e.target.value
+  })
+}
+
+setNewAvatar = () => {
+  return `/avatar/${this.state.gender}.jpg`;
 }
   render() {
-    
     return (
       <div className="App">
-           <FormApp 
-           onGenderChange={this.onGenderChange}
-           onMembershipChange = {this.onMembershipChange}             
+           <FormApp
+           avatar = { this.setNewAvatar() }
+           name = {this.state.name}
+           email = {this.state.email}
+           onNameChange = {this.onNameChange}
+           onEmailChange = {this.onEmailChange}
+           onGenderChange = {this.onGenderChange}
+           onMembershipChange = {this.onMembershipChange}
            />
       </div>
     )

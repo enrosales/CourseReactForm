@@ -45,7 +45,7 @@ const UserForm = (props) => (
           <label className="label-form"> Email </label>
         </div>
         <div className="input">
-          <input type="email" className="textbox" name="email" placeholder="Email" required />
+          <input type="email" className="textbox" name="email" placeholder="Email" required onChange={props.onEmailChange}/>
         </div>
       </div>
       <div className="row">
