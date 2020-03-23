@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import UserForm from './UserForm/UserForm'
 import UserPreview from './UserPreview/UserPreview'
 
-export default class FormApp extends Component {
-    render() {
-        return (
-            <div className="container">
-                <UserPreview />
-                <UserForm />
-            </div>
-        )
-    }
-}
+const FormApp = (props) => (
+    <div className="container">
+        <UserPreview />
+        <UserForm 
+        onGenderChange = {props.onGenderChange} 
+        onMembershipChange = {props.onMembershipChange}
+        />
+    </div>
+)
+
+export default FormApp

@@ -1,10 +1,47 @@
 .user-preview {
     height: 100%;
-    width: 35%;
+    width: 30%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgb(254, 214, 1);
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 1rem;
+}
+
+.img-preview {
+  /*  display: flex; */
+    border: 1px solid gray;
+    border-radius: 50%;
+    height: 130px;
+    width: 130px;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+.user-name {
+   /* display: flex; */
+    text-align: center;
+    font-size: 1.5em;
+    color: rgb(79, 66, 0);
+    font: bold;
+}
+.user-email {
+    margin-top: 10px;
+    color: rgb(172, 145, 0);
+   /* display: flex; */
+   /* text-align: center; */
+   
+}
+
+.paging {
+    margin-top: 10vh;
+    color: white;
+    background-color: rgb(43, 36, 0);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
