@@ -4,16 +4,17 @@ import UserPreview from './UserPreview/UserPreview'
 
 const FormApp = (props) => (
     <div className="container">
-        <UserPreview 
+        <UserPreview
             avatar = {props.avatar}
             name = {props.name}
             email = {props.email}
         />
         <UserForm
-        onNameChange = {props.onNameChange}
-        onEmailChange = {props.onEmailChange}
+        onChange = {props.onChange}
         onGenderChange = {props.onGenderChange}
         onMembershipChange = {props.onMembershipChange}
+        onCancel={props.onCancel}
+        onSubmit={props.onSubmit}
         />
     </div>
 )
