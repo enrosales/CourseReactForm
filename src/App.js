@@ -12,6 +12,7 @@ export default class App extends Component {
     mobile: "",
     customId: "",
     membership: "classic",
+    userPreview: true,
     users: []
   };
 
@@ -59,18 +60,22 @@ export default class App extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    let u = this.state.users
-    u.push(this.newUser())
+    let u = this.state.users;
+    u.push(this.newUser());
     this.setState({
       users: u
     });
     //guardando el usuario en el localStorage
-    localStorage.setItem("users", JSON.stringify(this.state.users))
-    //cargando del localStorage
-   // const arr = localStorage.getItem("users");
-    //console.log(JSON.parse(arr));
+    localStorage.setItem(
+      "array-of-users-logged",
+      JSON.stringify(this.state.users)
+    );
   };
-
+  paging = () => {
+    this.setState({
+      userPreview: false
+    });
+  };
   render() {
     return (
       <div className="App">
@@ -78,6 +83,9 @@ export default class App extends Component {
           avatar={this.setNewAvatar()}
           name={this.state.name}
           email={this.state.email}
+          userPreview={this.state.userPreview}
+          users={this.state.users}
+          onClickPaging={this.paging}
           onChange={this.actualizar}
           onGenderChange={this.onGenderChange}
           onMembershipChange={this.onMembershipChange}

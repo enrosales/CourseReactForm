@@ -8,6 +8,9 @@ const FormApp = (props) => (
             avatar = {props.avatar}
             name = {props.name}
             email = {props.email}
+            userPreview = {props.userPreview}
+            users = {props.users}
+            onClickPaging={props.onClickPaging}
         />
         <UserForm
         onChange = {props.onChange}
