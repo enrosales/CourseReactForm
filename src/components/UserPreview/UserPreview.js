@@ -2,38 +2,70 @@ import React, { Component } from "react";
 import "./user-preview.css";
 
 const UserPreviewContent = props => {
+  const userEmailClassname = (membership) => {
+    switch (membership) {
+      case 'gold':
+        return 'user-email-gold';
+      case 'silver':
+        return 'user-email-silver';
+      default:  /*  classic */
+        return 'user-email-classic';
+    }
+  }
   return (
     <div>
       <div>
         <img className="img-preview" src={`${props.avatar}`} alt="" />
       </div>
       <div className="user-name">{props.name}</div>
-      <div className="user-email">{props.email}</div>
+      <div className={`user-email ${userEmailClassname(props.membership)}`}>{props.email}</div>
     </div>
   );
 };
 
 const UserListPreview = props => {
   const { users } = props;
-  console.log('users from the state: ' + users)
   return (
-    <div>
-        <ul>
+    <div className="img-list">
         {users.map((user) => {
           return (
+            <div key={Date.now()} className="row-img-list">
             <div>
-              <li> <img src={`${props.avatar}`} alt=""></img> <p>{user.name}</p><span>{user.email}</span></li>
+                <img src={`/avatar/${user.gender}.jpg`} alt="" className="img-list-preview">
+                </img>
+            </div>
+               <div>
+               <p className="name-list-preview">{user.name}</p>
+               <p className="email-list-preview">{user.email}</p>
+               <hr/>
+               </div>
             </div>
           )
         })}
-        </ul>
     </div>
   )
 }
+
 export default class UserPreview extends Component {
+ 
+ chooseBackgroundColorByMembership(){
+   switch (this.props.membership) {
+     case 'silver':
+       return 'rgb(192, 192, 192)'
+    case 'gold':
+      return 'rgb(254, 214, 1)'
+    default:
+       return 'rgb(128, 128, 192)' /*classic*/
+   }
+ }
+  backgroundUserPreview(){
+    return {
+        background: this.props.userPreview ? this.chooseBackgroundColorByMembership() /* cambia en condicion del miembro */ : 'rgb(97, 232, 197)', /* verde el user-list-preview*/
+    }
+}
   render() {
     return (
-      <div className="user-preview">
+      <div style={this.backgroundUserPreview()} className="user-preview">
         { this.props.userPreview ?
         <UserPreviewContent {...this.props} />
          :
@@ -41,7 +73,7 @@ export default class UserPreview extends Component {
        { /* solo se mostrara si hay usuarios guardados en el local storage... */ }
           {this.props.users.length !== 0 && (
         <div className="paging" onClick={this.props.onClickPaging}>
-          <p> > </p>
+          <p> {this.props.userPreview ? '>' : '<'} </p>
         </div>
       )}
       </div>

@@ -8,6 +8,7 @@ const FormApp = (props) => (
             avatar = {props.avatar}
             name = {props.name}
             email = {props.email}
+            membership = {props.membership}
             userPreview = {props.userPreview}
             users = {props.users}
             onClickPaging={props.onClickPaging}
@@ -16,8 +17,8 @@ const FormApp = (props) => (
         onChange = {props.onChange}
         onGenderChange = {props.onGenderChange}
         onMembershipChange = {props.onMembershipChange}
-        onCancel={props.onCancel}
         onSubmit={props.onSubmit}
+        onResetForm={props.onResetForm}
         />
     </div>
 )

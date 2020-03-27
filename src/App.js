@@ -15,23 +15,18 @@ export default class App extends Component {
     userPreview: true,
     users: []
   };
-
-  cancelForm = () => {
-    this.resetState();
-  };
-
-  resetState = () => {
-    this.setState({
-      name: "",
-      gender: "male",
-      birth: "",
-      email: "",
-      mobile: "",
-      customId: "",
-      membership: "classic"
-    });
-  };
-
+resetForm = () => {
+  this.setState({
+    name: "",
+    gender: "male",
+    birth: "",
+    email: "",
+    mobile: "",
+    customId: "",
+    membership: "classic",
+    userPreview: true
+  })
+}
   actualizar = (name, text) => {
     this.setState({
       [name]: text
@@ -54,16 +49,14 @@ export default class App extends Component {
     return `/avatar/${this.state.gender}.jpg`;
   };
   newUser = () => {
-    const { name, email } = this.state;
-    const user = { name: name, email: email };
+    const { name, email, gender } = this.state;
+    const user = { name: name, email: email, gender: gender };
     return user;
   };
   onSubmit = e => {
     e.preventDefault();
-    let u = this.state.users;
-    u.push(this.newUser());
     this.setState({
-      users: u
+      users: [...this.state.users, this.newUser()]
     });
     //guardando el usuario en el localStorage
     localStorage.setItem(
@@ -73,9 +66,10 @@ export default class App extends Component {
   };
   paging = () => {
     this.setState({
-      userPreview: false
-    });
+      userPreview: !this.state.userPreview
+    })
   };
+
   render() {
     return (
       <div className="App">
@@ -83,13 +77,14 @@ export default class App extends Component {
           avatar={this.setNewAvatar()}
           name={this.state.name}
           email={this.state.email}
+          membership={this.state.membership}
           userPreview={this.state.userPreview}
           users={this.state.users}
           onClickPaging={this.paging}
           onChange={this.actualizar}
+          onResetForm={this.resetForm}
           onGenderChange={this.onGenderChange}
           onMembershipChange={this.onMembershipChange}
-          onCancel={this.cancelForm}
           onSubmit={this.onSubmit}
         />
       </div>

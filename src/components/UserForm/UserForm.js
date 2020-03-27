@@ -3,11 +3,13 @@ import "./user-form.css";
 import InputControlado from './InputControlado'
 
 export default class UserForm extends Component {
-
+handleReset = (e) => {
+  e.target.reset()
+}
   render() {
     return (
       <div className="container-form">
-    <form className="user-form" onSubmit={this.props.onSubmit}>
+    <form className="user-form" onSubmit={this.props.onSubmit} onReset={this.props.onResetForm}>
       <div className="row">
         <div className="label">
           <label className="label-form"> Name </label>
@@ -115,9 +117,7 @@ export default class UserForm extends Component {
       <div className="row row-buttons">
         <div className="label"></div>
         <div className="input">
-          <button type="reset" onClick={this.props.onCancel} className="btn btn-cancel">
-            CANCEL
-          </button>
+          <input type="reset" className="btn btn-cancel" value="Cancel"/>
           <button type="submit" className="btn btn-primary">
             SAVE
           </button>

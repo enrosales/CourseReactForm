@@ -23,7 +23,7 @@ export default class InputControlado extends Component {
     }
     render () {
       const styles = {
-        border: `${this.state.color}`,
+        borderColor: `${this.state.color}`,
       }
       return (
         <div className={this.props.divClassName}>

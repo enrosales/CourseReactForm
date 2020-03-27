@@ -1,11 +1,11 @@
 .user-preview {
     height: 100%;
-    width: 30%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgb(254, 214, 1);
+   /* background: rgb(254, 214, 1); */
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 1rem;
 }
@@ -28,10 +28,17 @@
 }
 .user-email {
     margin-top: 10px;
+}
+
+.user-email-gold {
     color: rgb(172, 145, 0);
-   /* display: flex; */
-   /* text-align: center; */
-   
+}
+
+.user-email-silver {
+    color: rgb(79, 66, 1);
+}
+.user-email-silver {
+    color: rgb(79, 67, 33);
 }
 
 .paging {
@@ -45,4 +52,37 @@
     justify-content: center;
     display: flex;
     cursor: pointer;
+}
+
+.img-list {
+    overflow: auto; 
+    width: 90%;
+    height: 40%;
+    background: rgb(212, 249, 239);
+}
+.row-img-list {
+    height: 70px;
+    width: 100px;
+    display: flex;
+}
+.img-list-preview {
+height: 40px;
+width: 40px;
+border-radius: 50%;
+align-content: flex-start;
+margin: 8px;
+}
+
+.name-list-preview {
+    width: inherit;
+    align-content: center;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-left: 8px;
+    color: rgb(52, 61, 58);
+}
+.email-list-preview {
+    align-content: center;
+    margin: 8px;
+    color: rgb(111, 131, 126);
 }
