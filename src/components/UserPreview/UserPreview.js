@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./user-preview.css";
 
-const UserPreviewContent = props => {
+const UserPreviewContent = ({avatar,name, membership,email}) => {
   const userEmailClassname = (membership) => {
     switch (membership) {
       case 'gold':
@@ -15,16 +15,15 @@ const UserPreviewContent = props => {
   return (
     <div>
       <div>
-        <img className="img-preview" src={`${props.avatar}`} alt="" />
+        <img className="img-preview" src={`${avatar}`} alt="" />
       </div>
-      <div className="user-name">{props.name}</div>
-      <div className={`user-email ${userEmailClassname(props.membership)}`}>{props.email}</div>
+      <div className="user-name">{name}</div>
+      <div className={`user-email ${userEmailClassname(membership)}`}>{email}</div>
     </div>
   );
 };
 
-const UserListPreview = props => {
-  const { users } = props;
+const UserListPreview = ({ users }) => {
   return (
     <div className="img-list">
         {users.map((user) => {
@@ -47,7 +46,6 @@ const UserListPreview = props => {
 }
 
 export default class UserPreview extends Component {
- 
  chooseBackgroundColorByMembership(){
    switch (this.props.membership) {
      case 'silver':

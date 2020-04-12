@@ -6,7 +6,7 @@ export default class InputControlado extends Component {
       color: '#E8E8E8'
     }
   
-    actualizarTexto = (event) =>{
+    updateText = (event) =>{
      const text = event.target.value
      let color = 'green'
   
@@ -30,7 +30,7 @@ export default class InputControlado extends Component {
           <input
             type={this.props.type}
             value={this.state.text}
-            onChange={this.actualizarTexto}
+            onChange={this.updateText}
             style={styles}
             placeholder={this.props.placeholder}
             className={this.props.className}
